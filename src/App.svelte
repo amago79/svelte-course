@@ -9,7 +9,7 @@
 	import {fullData} from "./stores/data";
 
 	let state = "welcome";//or playing
-	let celebs_promise;
+	// let celebs_promise;
 
 	let selection;
 	let lookup = new Map();
@@ -59,5 +59,6 @@
 		background:#000000E5;
 		color: white;
 	}
+
 
 </style>
