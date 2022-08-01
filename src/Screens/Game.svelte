@@ -216,6 +216,9 @@
         font-weight: 700;
     }
 
+    button:hover{
+        background-color: rgb(166, 230, 255);
+    }
     @media (min-width: 640px) {
         .game {
             max-width: 100%;
