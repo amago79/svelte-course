@@ -1,16 +1,16 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import { selected } from '../stores/config.js';
 
     const dispatch = createEventDispatcher();
 
     export let categories;
-    let selected = false;
+    // let selected = [];
 
     const select = (category) => {
-        selected = true;
+        $selected[category.slug] = true;
         dispatch('select', { category });
     };
-
 
     $: renderedCategories = categories.map((d) => {
         return {
@@ -36,7 +36,7 @@
 
 <div class="categories">
     {#each renderedCategories as category}
-        <button disabled={selected} on:click={() => select(category)}>{category.label}</button>
+        <button disabled={$selected[category.slug]} on:click={() => select(category)}>{category.label}</button>
     {/each}
 </div>
 
@@ -79,6 +79,11 @@
     button:hover{
         background-color: rgb(166, 230, 255);
     }
+
+    button:disabled{
+        background-color: rgb(205, 218, 224);
+    }
+
     @media(min-width: 640px){
         button{
             display: inline;
